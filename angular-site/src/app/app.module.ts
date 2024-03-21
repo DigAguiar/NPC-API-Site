@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { AddNpcComponent } from './add-npc/add-npc.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AddNpcComponent } from './add-npc/add-npc.component';
     HttpClientModule,
     FormsModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
     
   ],
   providers: [

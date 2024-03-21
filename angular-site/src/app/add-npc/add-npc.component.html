@@ -1,1 +1,11 @@
-<p>add-npc works!</p>
+<p>add-npc: </p>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Ex: Grim Njord" name="npcName" [(ngModel)]="npcCriado.nome">
+    </mat-form-field>
+  
+  </form>
+
+
+  <button (click)="criarNpc()">Enviar</button>
