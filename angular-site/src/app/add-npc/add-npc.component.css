@@ -1,0 +1,15 @@
+input {
+    
+}
+
+.input__container__field{
+    display: flex;
+    margin: 15px;
+    justify-content: center;
+    width: max-content;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}

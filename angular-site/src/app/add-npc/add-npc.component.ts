@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { INpc } from '../Type/Npc';
+import { Observable } from 'rxjs';
+import { AddnpcService } from './addnpc.service';
 
 @Component({
   selector: 'app-add-npc',
@@ -9,24 +11,41 @@ import { INpc } from '../Type/Npc';
 })
 export class AddNpcComponent {
 
-  npcCriado : INpc = {
-    id : 0,
-    nome : "",
-    idade : 0,
-    raca : "",
-    profissao : "",
-    alinhamento : "",
-    atributoAlto : "",
-    atributoBaixo : "",
-    estiloCombate : ""
+  url: string = "http://localhost:8080/npc"
+
+  npcCriado: INpc = {
+    id: undefined,
+    nome: undefined,
+    idade: undefined,
+    raca: undefined,
+    profissao: undefined,
+    alinhamento: undefined,
+    atributoAlto: undefined,
+    atributoBaixo: undefined,
+    estiloCombate: undefined
   };
 
-  constructor(private http : HttpClient) { }
+  vetorNpcs: INpc[] = [];
 
-  criarNpc() {
-    this.http.post<INpc>('http://localhost:3000/npc', this.npcCriado).subscribe((data) => {
-      this.npcCriado = data;
+  constructor(private addNpc: AddnpcService) { }
+
+  criarNpc(): void {
+    this.addNpc.addNpc(this.npcCriado).subscribe((data: INpc[]) => {
+      this.vetorNpcs = data;
+
+      this.npcCriado = {
+        id: undefined,
+        nome: undefined,
+        idade: undefined,
+        raca: undefined,
+        profissao: undefined,
+        alinhamento: undefined,
+        atributoAlto: undefined,
+        atributoBaixo: undefined,
+        estiloCombate: undefined
+      };
+
     });
-  }
 
+  }
 }
