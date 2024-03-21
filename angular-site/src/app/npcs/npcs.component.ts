@@ -12,7 +12,15 @@ export class NpcsComponent implements OnInit{
   constructor(private npcService : NpcServiceService) { }
 
   ngOnInit(): void {
-    
+    this.getAllNpcs();
+  }
+
+  getAllNpcs() : void {
+    this.npcService.getAllNpcs().subscribe(
+      (data) => {
+        console.log(data);
+      }
+    );
   }
 
 

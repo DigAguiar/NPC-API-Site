@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { INpc } from '../Type/Npc';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NpcServiceService {
 
-  url : string = "http://localhost:8080/npc";
+  url : string = "http://localhost:8092/npcGenerator";
 
   vetor : INpc[] = [
     {
@@ -29,6 +30,10 @@ export class NpcServiceService {
 
   quantidadeNpcs() : number  {
     return this.vetor.length;
+  }
+
+  getAllNpcs () : Observable<INpc[]> {
+    return this.http.get<INpc[]>(this.url);
   }
   
 
