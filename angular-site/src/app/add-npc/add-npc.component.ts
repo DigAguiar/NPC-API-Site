@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { INpc } from '../Type/Npc';
-import { Observable } from 'rxjs';
 import { AddnpcService } from './addnpc.service';
+import { NpcServiceService } from '../npcs/npc-service.service';
 
 @Component({
   selector: 'app-add-npc',
@@ -11,7 +10,6 @@ import { AddnpcService } from './addnpc.service';
 })
 export class AddNpcComponent {
 
-  url: string = "http://localhost:8080/npc"
 
   npcCriado: INpc = {
     id: undefined,
@@ -27,10 +25,15 @@ export class AddNpcComponent {
 
   vetorNpcs: INpc[] = [];
 
-  constructor(private addNpc: AddnpcService) { }
+  constructor(
+    private addNpcService: AddnpcService,
+    private npcService : NpcServiceService
+    ) { }
 
-  criarNpc(): void {
-    this.addNpc.addNpc(this.npcCriado).subscribe((data: INpc[]) => {
+  criarNpc () {
+    this.npcCriado.id = this.npcService.quantidadeNpcs() + 1;
+    
+    this.addNpcService.addNpc(this.npcCriado).subscribe((data: INpc[]) => {
       this.vetorNpcs = data;
 
       this.npcCriado = {

@@ -10,31 +10,29 @@ export class NpcServiceService {
 
   url : string = "http://localhost:8092/npcGenerator";
 
-  vetor : INpc[] = [
-    {
-      id: 1,
-      nome: "Gandalf",
-      idade: 78,
-      raca: "Gnomo",
-      profissao: "Mago",
-      alinhamento: "Neutro",
-      atributoAlto: "Inteligência",
-      atributoBaixo: "Força",
-      estiloCombate: "Magia"
-    }
-  ];
+  vetor : INpc[] = [];
 
 
   constructor(private http : HttpClient) { }
 
+  getVetor() : INpc[] {
+    return this.vetor;
+  }
 
   quantidadeNpcs() : number  {
-    return this.vetor.length;
+    let qtdeNPC : number = 0;
+    this.getAllNpcs().subscribe((data) => {
+      qtdeNPC = data.length;
+    });
+
+    return qtdeNPC;
   }
 
   getAllNpcs () : Observable<INpc[]> {
+    
     return this.http.get<INpc[]>(this.url);
   }
+  
   
 
 
