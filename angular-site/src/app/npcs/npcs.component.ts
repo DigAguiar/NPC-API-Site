@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NpcServiceService } from './npc-service.service';
+import { INpc } from '../Type/Npc';
 
 @Component({
   selector: 'app-npcs',
@@ -8,6 +9,7 @@ import { NpcServiceService } from './npc-service.service';
 })
 export class NpcsComponent implements OnInit{
 
+  vetorNpcs : INpc[] = [];	
 
   constructor(private npcService : NpcServiceService) { }
 
@@ -16,11 +18,10 @@ export class NpcsComponent implements OnInit{
   }
 
   getAllNpcs() : void {
-    this.npcService.getAllNpcs().subscribe(
-      (data) => {
-        console.log(data);
-      }
-    );
+    this.npcService.getAllNpcs().subscribe((data) => {
+      this.vetorNpcs = data;
+    });
+
   }
 
 

@@ -1,1 +1,5 @@
 <p>npcs works!</p>
+
+<ul *ngFor="let npc of vetorNpcs">
+    <a routerLink=":{{npc.id}}"> {{npc.nome}} </a>
+</ul>

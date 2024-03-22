@@ -29,7 +29,8 @@ import {MatInputModule} from '@angular/material/input';
     FormsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    
     
   ],
   providers: [

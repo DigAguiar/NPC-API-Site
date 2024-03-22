@@ -8,7 +8,7 @@ import { NpcServiceService } from '../npcs/npc-service.service';
 })
 export class HeaderComponent implements OnInit{
 
-  quantidadeNpcs : number = 0;
+  quantidadeNpcs : number | any;
 
 
   constructor(private npcService : NpcServiceService) { }

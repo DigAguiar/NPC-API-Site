@@ -11,7 +11,7 @@ export class NpcServiceService {
   url : string = "http://localhost:8092/npcGenerator";
 
   vetor : INpc[] = [];
-
+  qtdeNPC : number | any;
 
   constructor(private http : HttpClient) { }
 
@@ -20,12 +20,12 @@ export class NpcServiceService {
   }
 
   quantidadeNpcs() : number  {
-    let qtdeNPC : number = 0;
+    let qtd : number | any;
     this.getAllNpcs().subscribe((data) => {
-      qtdeNPC = data.length;
+      qtd = data.length;
     });
 
-    return qtdeNPC;
+    return qtd;
   }
 
   getAllNpcs () : Observable<INpc[]> {

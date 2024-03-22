@@ -25,30 +25,34 @@ export class AddNpcComponent {
 
   vetorNpcs: INpc[] = [];
 
+
   constructor(
     private addNpcService: AddnpcService,
-    private npcService : NpcServiceService
-    ) { }
+    private npcService: NpcServiceService,
+  ) { }
 
-  criarNpc () {
-    this.npcCriado.id = this.npcService.quantidadeNpcs() + 1;
-    
-    this.addNpcService.addNpc(this.npcCriado).subscribe((data: INpc[]) => {
-      this.vetorNpcs = data;
-
-      this.npcCriado = {
-        id: undefined,
-        nome: undefined,
-        idade: undefined,
-        raca: undefined,
-        profissao: undefined,
-        alinhamento: undefined,
-        atributoAlto: undefined,
-        atributoBaixo: undefined,
-        estiloCombate: undefined
-      };
-
+  criarNpc() {    
+    this.npcCriado.id = this.npcService.quantidadeNpcs() + 2;
+    this.addNpcService.addNpc(this.npcCriado).subscribe(  (npc) => {
+      this.vetorNpcs.push(npc);
     });
+    this.zerarNpcCriado();
 
   }
+
+  zerarNpcCriado(): void {
+    this.npcCriado = {
+      id: undefined,
+      nome: undefined,
+      idade: undefined,
+      raca: undefined,
+      profissao: undefined,
+      alinhamento: undefined,
+      atributoAlto: undefined,
+      atributoBaixo: undefined,
+      estiloCombate: undefined
+    };
+  }
+
+
 }
