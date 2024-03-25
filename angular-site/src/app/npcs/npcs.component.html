@@ -1,5 +1,8 @@
 <p>npcs works!</p>
 
 <ul *ngFor="let npc of vetorNpcs">
-    <a routerLink=":{{npc.id}}"> {{npc.nome}} </a>
+    <div class="container">
+        <a routerLink=":{{npc.id}}"> {{npc.nome}} </a>
+        <button mat-fab color="warn" (click)="excluirNpc(npc.id)"> <i class="fa-solid fa-trash"></i> </button>
+    </div>
 </ul>

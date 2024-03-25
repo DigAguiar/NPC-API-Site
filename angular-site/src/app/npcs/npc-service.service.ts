@@ -19,6 +19,11 @@ export class NpcServiceService {
     return this.vetor;
   }
 
+  getNpcById(id : number) {
+    
+  }
+
+
   quantidadeNpcs() : number  {
     let qtd : number | any;
     this.getAllNpcs().subscribe((data) => {
@@ -31,6 +36,11 @@ export class NpcServiceService {
   getAllNpcs () : Observable<INpc[]> {
     
     return this.http.get<INpc[]>(this.url);
+  }
+
+  excluirNpcExisten (idNpc : number | undefined) {
+    return this.http.delete(this.url + "/delete=" + idNpc);
+
   }
   
   

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NpcsRoutingModule } from './npcs-routing.module';
 import { NpcsComponent } from './npcs.component';
 import { DetalheNpcComponent } from './detalhe-npc/detalhe-npc.component';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { DetalheNpcComponent } from './detalhe-npc/detalhe-npc.component';
   ],
   imports: [
     CommonModule,
-    NpcsRoutingModule
+    NpcsRoutingModule,
+    MatButtonModule
   ]
 })
 export class NpcsModule { }

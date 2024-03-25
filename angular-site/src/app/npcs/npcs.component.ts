@@ -24,5 +24,11 @@ export class NpcsComponent implements OnInit{
 
   }
 
+  excluirNpc (idNpc : number | undefined) {
+    this.npcService.excluirNpcExisten(idNpc).subscribe(() => {
+      this.getAllNpcs();
+    });
+  }
+
 
 }
