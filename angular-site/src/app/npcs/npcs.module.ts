@@ -6,6 +6,7 @@ import { NpcsComponent } from './npcs.component';
 import { DetalheNpcComponent } from './detalhe-npc/detalhe-npc.component';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     NpcsRoutingModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatInputModule
     
   ]
 })

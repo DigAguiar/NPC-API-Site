@@ -1,4 +1,43 @@
-<p>detalhe-npc works!</p>
+<p>detalhes do npc {{ npcPeloId.nome }}</p>
 
-<p> {{npcPeloId?.profissao}} </p>
-<p> {{npcPeloId?.estiloCombate}} </p>
+<form class="container">
+
+    <mat-form-field class="input__container__field">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Ex: Grim Njord" name="npcNome"  [(ngModel)]="npcPeloId.nome">
+    </mat-form-field>
+    <mat-form-field class="input__container__field">
+      <mat-label>Idade</mat-label>
+      <input matInput placeholder="Ex: 29" type="number" name="npcIdade" [(ngModel)]="npcPeloId.idade">
+    </mat-form-field>
+    <mat-form-field class="input__container__field">
+      <mat-label>Raça</mat-label>
+      <input matInput placeholder="Ex: Goliath" name="npcRaca" [(ngModel)]="npcPeloId.raca">
+    </mat-form-field>
+    <mat-form-field class="input__container__field">
+      <mat-label>Profissao</mat-label>
+      <input matInput placeholder="Ex: Ferreiro" name="npcProfissao" [(ngModel)]="npcPeloId.profissao">
+    </mat-form-field>
+    <mat-form-field class="input__container__field">
+      <mat-label>Alinhamento</mat-label>
+      <input matInput placeholder="Ex: Leal e bom" name="npcAlinhamento" [(ngModel)]="npcPeloId.alinhamento">
+    </mat-form-field>
+    <mat-form-field class="input__container__field">
+      <mat-label>Atributo Alto</mat-label>
+      <input matInput placeholder="Ex: Destreza" name="npcAtributoAlto" [(ngModel)]="npcPeloId.atributoAlto" >
+    </mat-form-field>
+    <mat-form-field class="input__container__field">
+      <mat-label>Atributo Baixo</mat-label>
+      <input matInput placeholder="Ex: Carisma" name="npcAtributoBaixo" [(ngModel)]="npcPeloId.atributoBaixo">
+    </mat-form-field>
+    <mat-form-field class="input__container__field">
+      <mat-label>Estilo de Combate</mat-label>
+      <input matInput placeholder="Ex: Mestre de Espada" name="npcEstiloCombate" [(ngModel)]="npcPeloId.estiloCombate">
+    </mat-form-field>
+
+ 
+</form>
+
+
+
+<button mat-raised-button color="accent" (click)="editarNpc(npcPeloId)"> Editar</button>

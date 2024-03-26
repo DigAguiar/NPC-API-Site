@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NpcServiceService } from '../npc-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { INpc } from '../../Type/Npc';
 
 @Component({
@@ -10,12 +10,24 @@ import { INpc } from '../../Type/Npc';
 })
 export class DetalheNpcComponent implements OnInit{
 
-  npcPeloId: INpc | undefined;
+  npcPeloId: INpc ={
+    id: undefined,
+    nome: undefined,
+    idade: undefined,
+    raca: undefined,
+    profissao: undefined,
+    alinhamento: undefined,
+    atributoAlto: undefined,
+    atributoBaixo: undefined,
+    estiloCombate: undefined
+  
+  };
   id: number = 0;
 
   constructor(
     private npcService: NpcServiceService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() : void{
@@ -25,6 +37,14 @@ export class DetalheNpcComponent implements OnInit{
 
     this.npcPeloId = this.npcService.getNpcById(this.id);
 
+  }
+
+  editarNpc(npc : INpc) {
+  console.log('editarNpc');
+  this.npcService.editarNpcExistente(npc);
+
+
+  this.router.navigate(['/npcs']);
   }
 
 

@@ -8,13 +8,16 @@ import { NpcServiceService } from '../npcs/npc-service.service';
 })
 export class HeaderComponent implements OnInit{
 
-  quantidadeNpcs : number | any;
+  quantidadeNpcs : number = this.pegarQuantidadeNpcs();
 
 
   constructor(private npcService : NpcServiceService) { }
 
   ngOnInit(): void {
-    this.quantidadeNpcs = this.npcService.quantidadeNpcs();
+  }
+
+  pegarQuantidadeNpcs () : number {
+    return this.npcService.quantidadeNpcs();
   }
 
 }

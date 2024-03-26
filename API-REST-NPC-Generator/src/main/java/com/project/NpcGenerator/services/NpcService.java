@@ -24,7 +24,7 @@ public class NpcService {
     public RandomNPC salvarAleatorio() {
         RandomNPC rNPC = new RandomNPC();
         rNPC.statusNPC();
-
+        rNPC.setNome("null");
         npcRepository.save(new NPC(rNPC));
         return rNPC;
     }
@@ -42,22 +42,22 @@ public class NpcService {
     public void editar(Integer idNPC, NPC dados) throws Exception {
         NPC npc = npcRepository.getReferenceById(idNPC);
 
-        if (dados.getNome() != null)
-            npc.setNome(dados.getNome());
-        if (dados.getIdade() != 0)
-            npc.setIdade(dados.getIdade());
-        if (dados.getRaca() != null)
-            npc.setRaca(dados.getRaca());
-        if (dados.getProfissao() != null)
-            npc.setProfissao(dados.getProfissao());
-        if (dados.getAlinhamento() != null)
-            npc.setAlinhamento(dados.getAlinhamento());
-        if (dados.getAtributoAlto() != null)
-            npc.setAtributoAlto(dados.getAtributoAlto());
-        if (dados.getAtributoBaixo() != null)
-            npc.setAtributoBaixo(dados.getAtributoBaixo());
-        if (dados.getEstiloCombate() != null)
-            npc.setEstiloCombate(dados.getEstiloCombate());
+        if (dados.getNome() != null) { npc.setNome(dados.getNome()); }
+            
+        if (dados.getIdade() != 0) { npc.setIdade(dados.getIdade()); }
+            
+        if (dados.getRaca() != null) { npc.setRaca(dados.getRaca()); }
+            
+        if (dados.getProfissao() != null) { npc.setProfissao(dados.getProfissao()); }
+            
+        if (dados.getAlinhamento() != null) { npc.setAlinhamento(dados.getAlinhamento()); }
+            
+        if (dados.getAtributoAlto() != null) { npc.setAtributoAlto(dados.getAtributoAlto()); }
+            
+        if (dados.getAtributoBaixo() != null) { npc.setAtributoBaixo(dados.getAtributoBaixo()); }
+            
+        if (dados.getEstiloCombate() != null) { npc.setEstiloCombate(dados.getEstiloCombate()); }
+            
         salvar(npc);
 
     }

@@ -36,7 +36,6 @@ export class NpcServiceService {
     console.log(id)
 
     this.vetor.forEach((npc) => {
-      console.log("foreach")
       if (id == npc.id) {
         console.log("entrou");
         this.npcTemp = npc;
@@ -69,6 +68,10 @@ export class NpcServiceService {
 
   }
   
+  editarNpcExistente (npc : INpc) {
+    this.http.put<INpc>(this.url + "/edit=" + npc.id, npc);
+
+  }
   
 
 
