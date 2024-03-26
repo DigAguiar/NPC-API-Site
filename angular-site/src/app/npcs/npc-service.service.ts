@@ -10,16 +10,42 @@ export class NpcServiceService {
 
   url : string = "http://localhost:8092/npcGenerator";
 
+  temp : number = 0;
   vetor : INpc[] = [];
   qtdeNPC : number | any;
+  npcTemp : INpc = {
+    id : undefined,
+    nome : undefined,
+    idade : undefined,
+    raca : undefined,
+    profissao : undefined,
+    alinhamento : undefined,
+    atributoAlto : undefined,
+    atributoBaixo : undefined,
+    estiloCombate : undefined
+  };
 
   constructor(private http : HttpClient) { }
 
-  getVetor() : INpc[] {
-    return this.vetor;
-  }
 
-  getNpcById(id : number) {
+  getNpcById(id : number | undefined) : INpc {
+    this.http.get<INpc[]>(this.url).subscribe((data) => {
+      this.vetor = data;
+    });
+    console.log( "vetor: " ,  this.vetor);
+    console.log(id)
+
+    this.vetor.forEach((npc) => {
+      console.log("foreach")
+      if (id == npc.id) {
+        console.log("entrou");
+        this.npcTemp = npc;
+      }
+        
+    });
+
+
+    return this.npcTemp;
     
   }
 
